@@ -1,3 +1,3 @@
-module github.com/termitkin/get_my_channel_id_bot_go
+module github.com/termitkin/get-my-channel-id-bot-go
 
 go 1.20

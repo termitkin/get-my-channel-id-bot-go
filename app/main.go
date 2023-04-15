@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/termitkin/get_my_channel_id_bot_go/app/request"
-	"github.com/termitkin/get_my_channel_id_bot_go/app/response"
-	"github.com/termitkin/get_my_channel_id_bot_go/app/setups"
-	"github.com/termitkin/get_my_channel_id_bot_go/app/utils"
+	"github.com/termitkin/get-my-channel-id-bot-go/app/request"
+	"github.com/termitkin/get-my-channel-id-bot-go/app/response"
+	"github.com/termitkin/get-my-channel-id-bot-go/app/setups"
+	"github.com/termitkin/get-my-channel-id-bot-go/app/utils"
 )
 
 func handleRequest(res http.ResponseWriter, req *http.Request) {
@@ -98,6 +98,8 @@ func main() {
 	varExists := setups.CheckEnvVariable("TELEGRAM_BOT_TOKEN")
 
 	if !varExists {
+		fmt.Println("TELEGRAM_BOT_TOKEN variable is not set")
+
 		return
 	}
 

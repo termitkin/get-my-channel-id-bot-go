@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/termitkin/get-my-channel-id-bot-go/app/request"
@@ -94,15 +95,15 @@ func handleRequest(res http.ResponseWriter, req *http.Request) {
 	response.SendMessage(url)
 }
 
-func main() {
+func init() {
 	varExists := setups.CheckEnvVariable("TELEGRAM_BOT_TOKEN")
 
 	if !varExists {
-		fmt.Println("TELEGRAM_BOT_TOKEN variable is not set")
-
-		return
+		log.Fatalln("TELEGRAM_BOT_TOKEN variable is not set")
 	}
+}
 
+func main() {
 	http.HandleFunc("/", handleRequest)
 	http.ListenAndServe(":8080", nil)
 }
